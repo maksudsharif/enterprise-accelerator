@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "caching.gemfire.locator",
+      "type": "java.lang.String",
+      "description": "Locator definition string, may be a CSV list."
+    }
+  ] }

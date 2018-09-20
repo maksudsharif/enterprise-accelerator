@@ -1,0 +1,28 @@
+server:
+  port: 9761
+spring:
+  cloud:
+    discovery:
+      client:
+        simple:
+          local:
+            service-id: proxy
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+  application:
+    name: proxy
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}-${random.uuid}
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka,http://127.0.0.1:8762/eureka
+    fetch-registry: true
+    register-with-eureka: true
+logging:
+  level:
+    org.springframework.cloud: trace
